@@ -106,6 +106,6 @@ document.getElementById("img-logo").addEventListener("click", () => {
 
 btnAddPaciente.addEventListener('click', (ev) => {
   ev.preventDefault();
-  window.open('researchForm.html', '_self');
+  window.open('form1.html', '_self');
 
 });
