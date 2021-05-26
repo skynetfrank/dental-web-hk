@@ -5,51 +5,30 @@ const usuarioActual = document.getElementById("usuario");
 const mostrarData = document.getElementById("div__mostrar");
 const agenda = document.getElementById("link-agenda");
 const paciente = document.getElementById("link-paciente");
+const btnAddPaciente = document.getElementById("btn-agregar-paciente");
+
 var pacientex = [];
+
 function formatearFecha(nfecha) {
   var info = nfecha.split('-').reverse().join('/');
   return info;
 }
 
 agenda.addEventListener('click', () => {
+
   document.getElementById("inicio").style.display = "none"
-  document.getElementById("myIntro").style.display = "block"
   document.getElementById("myTimeline").style.display = "initial"
 
-});
-
-paciente.addEventListener('click', () => {
-  document.getElementById("inicio").style.display = "initial"
-  document.getElementById("myIntro").style.display = "none"
-  document.getElementById("myTimeline").style.display = "none"
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-window.addEventListener("load", function () {
   let timeLista = document.getElementById("ul-timeline");
 
   db.collection('users').get()
     .then(snapshot => {
-
       snapshot.docs.forEach(paciente => {
         let currentID = paciente.id
         let appObj = { ...paciente.data(), ['id']: currentID }
         pacientex.push(appObj)
-        // pacientex.push(paciente.data())
       })
     });
-
 
   const getCitas = async () => {
     const allcitas = await db.collection('citas')
@@ -58,20 +37,31 @@ window.addEventListener("load", function () {
       .onSnapshot(querysnapshot => {
         querysnapshot.forEach((doc) => {
           let data = doc.data();
-
           const found = pacientex.find(p => p.id === data.paciente);
-          console.log("Found==>:", found.nombre, found.id);
 
           let fila = `<li><div> <button style="display: block" class="btn-eliminar-cita">X</button><time>Dia: ${formatearFecha(data.fecha)}
            Hora: ${data.hora}</time><time>Paciente: ${found.nombre} ${found.apellido} </time>
-           Mensaje: ${data.msg} 
-          
+           Mensaje: ${data.msg}           
            </div></li>`
           timeLista.innerHTML += fila
         })
       });
   }
   getCitas();
+
+});
+
+paciente.addEventListener('click', () => {
+  document.getElementById("pacientes").style.display = "inline-block"
+  document.getElementById("inicio").style.display = "none"
+  document.getElementById("myTimeline").style.display = "none"
+  navLinks.classList.toggle('active');
+
+});
+
+
+window.addEventListener("load", function () {
+
 });
 
 
@@ -90,18 +80,7 @@ auth.onAuthStateChanged(async (user) => {
     document.querySelectorAll(".menu").forEach((elemento) => {
       elemento.style.pointerEvents = "all";
       elemento.style.color = "black";
-
     })
-
-    /*  const datos = async () => {
-         const snopshot = await db.collection("users")
-             .doc(user.uid)
-             .get();
-         snopshot.data().forEach((e) => {
-             console.log("cada for each", e.bio);
-         });
-     }
-     datos(); */
   } else {
     document.querySelectorAll(".menu").forEach((elemento) => {
       elemento.style.pointerEvents = "none";
@@ -117,12 +96,16 @@ auth.onAuthStateChanged(async (user) => {
 
 toggleButton.addEventListener('click', () => {
   navLinks.classList.toggle('active');
-
 })
 
+document.getElementById("img-logo").addEventListener("click", () => {
+  document.getElementById("pacientes").style.display = "none"
+  document.getElementById("inicio").style.display = "inline-block"
+  document.getElementById("myTimeline").style.display = "none"
+});
 
-/* window.addEventListener('click',(e)=>{
+btnAddPaciente.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  window.open('formulario1.html', '_self');
 
-e.preventDefault();
-console.log("Clicked on: ",e.target);
-}) */
+});

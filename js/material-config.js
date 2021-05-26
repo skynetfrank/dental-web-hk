@@ -42,7 +42,8 @@ modal__login.innerHTML = `<div class="modal-content">
                 </div>
                 <div class="input-field">
                     <input type="password" id="login-password" required />
-                    <label for="login-password">ingresa una clave (password)</label>                </div>
+                    <label for="login-password">ingresa una clave (password)</label> 
+                </div>
                 <button class="btn inicio lime z-depth-0">enviar</button>                
             </form>
         </div>`
@@ -60,10 +61,10 @@ modal__crud.innerHTML = `
         <h4>Pacientes</h4>
     </div>
     <div class="pacientes-box">
-        <button class="btn cyan z-depth-0">Agregar</button>
-        <button class="btn  cyan z-depth-0">Modificar</button>
-        <button class="btn  cyan z-depth-0">Eliminar</button>
-        <button class="btn  cyan z-depth-0">Consultar</button>
+        <button class="btn cyan z-depth-0" id="btn-agregar-paciente">Agregar</button>
+        <button class="btn  cyan z-depth-0" id="btn-agregar-paciente">Modificar</button>
+        <button class="btn  cyan z-depth-0" id="btn-agregar-paciente">Eliminar</button>
+        <button class="btn  cyan z-depth-0" id="btn-agregar-paciente">Consultar</button>
     </div>
     <div class="modal-footer">
         <a href="#!" class="modal-close waves-effect waves-green btn-flat lime ">Cerrar</a>

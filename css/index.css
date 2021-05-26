@@ -32,15 +32,16 @@ h4 {
   z-index: 999;
 }
 
-.brandName {
-  display: flex;
-  align-items: center;
-}
-
 .logo-dental {
   width: 100px;
   height: 50px;
   margin-left: 35px;
+  cursor: pointer;
+}
+
+.brandName {
+  display: flex;
+  align-items: center;
 }
 
 #usuario {
@@ -48,25 +49,6 @@ h4 {
   color: rgb(98, 95, 95);
   letter-spacing: 0.5px;
   margin-left: 10px;
-}
-
-#modal-msg {
-  height: 210px;
-  width: 400px;
-}
-
-#modal-login {
-  width: 400px;
-  max-height: 80%;
-}
-
-#logout {
-  display: none;
-  color: #d500f9;
-}
-
-.signup-div {
-  margin-top: 5px;
 }
 
 .navLinks ul {
@@ -94,16 +76,6 @@ h4 {
   font-weight: 700;
 }
 
-/* .inicio {
-  margin-right: 160px;
-  color: rgb(87, 85, 85);
-} */
-
-i.left {
-  margin-right: 5px;
-  color: rgb(4, 167, 167);
-}
-
 .toggle-button {
   position: absolute;
   top: 20px;
@@ -122,11 +94,50 @@ i.left {
   border-radius: 10px;
 }
 
+#modal-msg {
+  height: 210px;
+  width: 400px;
+}
+
+#modal-login {
+  width: 400px;
+  max-height: 80%;
+}
+
+#logout {
+  display: none;
+  color: #d500f9;
+}
+
+.signup-div {
+  margin-top: 5px;
+}
+
+/* .inicio {
+  margin-right: 160px;
+  color: rgb(87, 85, 85);
+} */
+
+i.left {
+  margin-right: 5px;
+  color: rgb(4, 167, 167);
+}
+
+/* SECCIONES DEL HTML */
+
 #inicio {
   height: 100vh;
   width: 100%;
   background-color: whitesmoke;
-  background: url("./images/bg1.jpg") no-repeat top center;
+  background: url("../images/bg1.jpg") no-repeat top center;
+  background-size: cover;
+}
+#pacientes {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  background-color: #aad8d3;
+ 
   background-size: cover;
 }
 
@@ -135,7 +146,6 @@ i.left {
   height: 100vh;
   width: 100%;
   background-color: whitesmoke;
-
   background-size: cover;
 }
 
@@ -256,14 +266,12 @@ table td {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .intro {
- 
-  display: none;
   background: #f45b69;
   padding: 30px 0;
 }
 
 .intro-header {
-   width: 90%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
