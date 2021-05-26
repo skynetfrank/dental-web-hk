@@ -97,7 +97,7 @@ textarea {
   padding: 5px;
 }
 
-.item.textarea{
+.item.textarea {
   margin-top: 0;
 }
 
@@ -223,7 +223,7 @@ label.check:after {
   opacity: 0;
 }
 
-.check.check16{
+.check.check16 {
   margin-bottom: 3px;
 }
 
@@ -253,6 +253,10 @@ button:hover {
 }
 
 @media (min-width: 568px) {
+  form {
+    width: 100%;
+  }
+
   .city-item {
     display: flex;
     flex-wrap: wrap;
